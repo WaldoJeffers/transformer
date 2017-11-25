@@ -1,0 +1,26 @@
+{
+  "name": "transformer",
+  "version": "1.0.0",
+  "main": "index.js",
+  "scripts": {
+    "test": "jest"
+  },
+  "author": "Waldo Jeffers",
+  "license": "MIT",
+  "devDependencies": {
+    "babel-core": "^6.26.0",
+    "babel-jest": "^21.2.0",
+    "babel-preset-env": "^1.6.1",
+    "jest": "^21.2.1"
+  },
+  "dependencies": {},
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/WaldoJeffers/transformer.git"
+  },
+  "bugs": {
+    "url": "https://github.com/WaldoJeffers/transformer/issues"
+  },
+  "homepage": "https://github.com/WaldoJeffers/transformer#readme",
+  "description": ""
+}
