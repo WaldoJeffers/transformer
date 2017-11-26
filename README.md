@@ -68,6 +68,7 @@ transformer(input) // { balance: '$400.17', name: 'James M'}
 transformer
 ```
 A transformer function which will simply return the value associated with the output key from the input object, **if it exists**.
+### example
 ```js
 import { identity, transform } from '@waldojeffers/transformer'
 
@@ -81,7 +82,6 @@ const descriptor = {
 const transformer = transform(descriptor)
 transformer(input) // { name: 'James M'}
 ```
-### example
 
 ### mapFrom
 #### description
