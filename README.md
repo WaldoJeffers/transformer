@@ -62,6 +62,30 @@ const transformer = transform(descriptor)
 transformer(input) // { balance: '$400.17', name: 'James M'}
 ```
 
+### map(mapper)
+#### description
+```
+Function: mapper: Function -> transformer
+```
+Returns a transformer function which will pick the value associated to the input object's key on which this function is used, and map over it using the provided mapper function.
+
+#### parameters
+  - **mapper** `Function`: A function which will map over the associated property's value.
+
+#### example
+```js
+import { identity, transform } from '@waldojeffers/transformer'
+
+const input = {
+  name: 'James M',
+}
+const descriptor = {
+  name: map(s => s.toUpperCase()),
+}
+const transformer = transform(descriptor)
+transformer(input) // { name: 'JAMES M'}
+```
+
 ### identity
 #### description
 ```

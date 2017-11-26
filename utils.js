@@ -24,3 +24,6 @@ export const pluck = (props, input) =>
   Array.isArray(props)
     ? props.reduce((output, prop) => ({ ...output, [prop]: input[prop] }), {})
     : input[props]
+
+export const wrapFn = input =>
+  typeof input === 'function' ? (...args) => input(...args) : () => input
