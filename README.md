@@ -68,7 +68,7 @@ transformer(input) // { balance: '$400.17', name: 'James M'}
 transformer
 ```
 A transformer function which will simply return the value associated with the output key from the input object, **if it exists**.
-### example
+#### example
 ```js
 import { identity, transform } from '@waldojeffers/transformer'
 
