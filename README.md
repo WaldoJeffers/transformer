@@ -40,7 +40,7 @@ transformer(input) // { fullname: 'James M', drumsticks: 2, role: 'drummer' }
  ```
  Returns a function which transforms an input object based on the descriptor object you provide it. `transform` is a pure function: it will create a new output object and will not modify the input object.
  #### parameters
-   - **descriptor** `Object<outputProperty: transformer>`: An object which describe how the output object will look like. Its keys define which properties will exist on the output object, and its values are *transformers* (such as `identity`, `mapFrom`) which compute the output object's values, usually by mapping from the input values. ⚠️ Any property from the input object whose key is missing in the descriptor will be stripped off in the output object.
+   - **descriptor** `Object<outputProperty: transformer>`: An object which describe how the output object will look like. Its keys define which properties will exist on the output object, and its values are *transformers* (such as [`identity`](#identity), [`mapFrom`](#mapFrom)) which compute the output object's values, usually by mapping from the input values. ⚠️ Any property from the input object whose key is missing in the descriptor will be stripped off in the output object.
 
 #### return value
 A function whose signature is `Function: input: Object -> output: Object` and which accepts an input object which it will transform into an ouput object based on the descriptor object provided earlier.
