@@ -34,7 +34,6 @@ transformer(input) // { fullname: 'James M', drumsticks: 2, role: 'drummer' }
 
 ## documentation
 ### transform
-___
 #### description
  ```
  Function: descriptor: Object -> (Function: input: Object -> output: Object)
