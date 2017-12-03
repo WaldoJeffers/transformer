@@ -1,6 +1,11 @@
 # transformer
 A utility library to easily transform your data: describe your desired output, provide an input, and *voilà* 🌟!
 
+[![Transformer on npmjs](https://img.shields.io/npm/v/@waldojeffers/transformer.svg?style=flat-square)](https://www.npmjs.com/package/@waldojeffers/transformer)
+[![Transformer download stats on npmjs](https://img.shields.io/npm/dw/@waldojeffers/transformer.svg?style=flat-square)](https://npm-stat.com/charts.html?package=%40waldojeffers%2Ftransformer)
+[![Codeship Status for WaldoJeffers/transformer](https://img.shields.io/codeship/7dc90ec0-ba7e-0135-1d22-52634e59fba4.svg?style=flat-square)](https://app.codeship.com/projects/259215)
+[![codecov](https://img.shields.io/codecov/c/github/WaldoJeffers/transformer.svg?style=flat-square)](https://codecov.io/gh/WaldoJeffers/transformer)
+
 ## installation
 ```
 npm i @waldojeffers/transformer
