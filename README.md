@@ -1,5 +1,5 @@
 # transformer
-An utility library to easily transform your data: describe your desired output, provide an input, and *voilà* 🌟!
+A utility library to easily transform your data: describe your desired output, provide an input, and *voilà* 🌟!
 
 ## installation
 ```
