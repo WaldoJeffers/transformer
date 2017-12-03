@@ -89,7 +89,7 @@ transformer(input) // { name: 'JAMES M'}
 ### identity
 #### description
 ```
-transformer
+transformer(descriptor)
 ```
 A transformer function which will simply return the value associated with the output key from the input object, **if it exists**.
 
@@ -108,7 +108,7 @@ const transformer = transform(descriptor)
 transformer(input) // { name: 'James M'}
 ```
 
-### mapFrom
+### mapFrom(inputKey, mapper)
 #### description
 ```
 Function: (inputKey: String|Array<String>, [mapper: (Function: inputValue: any|Object<any>)]) -> transformer
@@ -116,7 +116,7 @@ Function: (inputKey: String|Array<String>, [mapper: (Function: inputValue: any|O
 Returns a transformer which will pick keys from the input object and transform their associated value with a provided mapper function.
 #### parameters
   - **inputKey** `String | Array<String>`: the inputKey(s) whose associated value in the input object should be retrieved and provided to the mapper function
-  - **mapper** `Function: any | Object<any> ->  any | Object<any>`: the function which will map over the picked keys. Its default value is the identity function (`x => x`). If a string is provided as the input key, the mapper function will receive its associated value. If an array of string is provided, the function will receive an object.
+  - **mapper** `Function: any | Object<any> | Array<any> ->  any`: the function which will map over the picked keys. Its default value is the identity function (`x => x`). If a string is provided as the input key, the mapper function will receive its associated value. If an array of strings is provided, the function will receive the associated values, either as single parameters if the provided function accept the same number of arguments as the inputKeys array's length, or as an object.
 
 #### example
 ```js
@@ -126,11 +126,15 @@ const input = {
   balance: 400.17,
   firstname: 'James',
   lastname: 'M',
+  drumstickCount: 2,
+  drumstickPrice: 7.50
+
 }
 const descriptor = {
   balance: mapFrom('balance', amount => '$' + amount),
   fullname: mapFrom(['firstname', 'lastname'], ({firstname, lastname}) => `${firstname} ${lastname}`),
+  drumsticksValue: mapFrom(['drumstickCount', 'drumstickValue'], (a, b) => a * b)
 }
 const transformer = transform(descriptor)
-transformer(input) // { balance: '$400.17', fullname: 'James M'}
+transformer(input) // { balance: '$400.17', fullname: 'James M', drumsticksValue: 15}
 ```
