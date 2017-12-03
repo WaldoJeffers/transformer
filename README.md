@@ -9,7 +9,7 @@ npm i @waldojeffers/transformer
 ## usage
 
 ```js
-import { identity, mapFrom, transform } from 'transformer'
+import { identity, map, mapFrom, transform } from 'transformer'
 
 const input = {
   firstname: 'James',
@@ -24,12 +24,11 @@ const transformer = transform({
     ['firstname', 'lastname'],
     ({ firstname, lastname }) => `${firstname} ${lastname}`
   ),
-  middlename: mapFrom('middlename', s => s.toUpperCase()),
   drumsticks: identity,
-  role: mapFrom('occupation', s => s.toLowerCase()),
+  occupation: map(s => s.toLowerCase()),
 })
 
-transformer(input) // { fullname: 'James M', drumsticks: 2, role: 'drummer' }
+transformer(input) // { fullname: 'James M', drumsticks: 2, occupation: 'drummer' }
 ```
 
 ## documentation
