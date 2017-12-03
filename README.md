@@ -128,7 +128,6 @@ const input = {
   lastname: 'M',
   drumstickCount: 2,
   drumstickPrice: 7.50
-
 }
 const descriptor = {
   balance: mapFrom('balance', amount => '$' + amount),
