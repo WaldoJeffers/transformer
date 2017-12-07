@@ -1,4 +1,4 @@
-import pluck from '../lib/pluck'
+import pluck from '../src/pluck'
 
 describe('pluck', () => {
   it('should return undefined when retrieving a non-existing propery', () => {

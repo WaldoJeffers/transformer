@@ -1,4 +1,4 @@
-import hasProps from '../lib/hasProps'
+import hasProps from '../src/hasProps'
 
 describe('hasProps', () => {
   it('should return false for an undefined property', () => {

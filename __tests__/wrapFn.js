@@ -1,4 +1,4 @@
-import wrapFn from '../lib/wrapFn'
+import wrapFn from '../src/wrapFn'
 
 describe('wrapFn', () => {
   it('should return a function returning the non-function value provided as input', () => {

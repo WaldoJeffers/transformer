@@ -1,4 +1,4 @@
-import branch from '../lib/branch'
+import branch from '../src/branch'
 
 describe('branch', () => {
   it('should return the truth branch when the condition is truthy', () => {

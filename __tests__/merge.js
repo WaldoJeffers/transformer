@@ -1,4 +1,4 @@
-import merge from '../lib/merge'
+import merge from '../src/merge'
 
 describe('merge', () => {
   it('should be a pure function', () => {

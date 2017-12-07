@@ -1,4 +1,4 @@
-import of from '../lib/of'
+import of from '../src/of'
 
 describe('of', () => {
   it('should return the input when provided with anything other than a function', () => {

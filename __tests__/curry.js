@@ -1,4 +1,4 @@
-import curry from '../lib/curry'
+import curry from '../src/curry'
 
 const _add = (a, b, c) => a + b + c
 

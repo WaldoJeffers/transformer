@@ -1,7 +1,7 @@
-import identity from '../lib/identity'
-import map from '../lib/map'
-import mapFrom from '../lib/mapFrom'
-import transform from '../lib/transform'
+import identity from '../src/identity'
+import map from '../src/map'
+import mapFrom from '../src/mapFrom'
+import transform from '../src/transform'
 
 const input = {
   age: '27',

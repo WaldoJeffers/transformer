@@ -1,5 +1,5 @@
-import identity from '../lib/identity'
-import merge from '../lib/merge'
+import identity from '../src/identity'
+import merge from '../src/merge'
 
 describe('identity', () => {
   test('on a undefined property', () => {

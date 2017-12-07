@@ -1,5 +1,5 @@
-import mapFrom from '../lib/mapFrom'
-import merge from '../lib/merge'
+import mapFrom from '../src/mapFrom'
+import merge from '../src/merge'
 
 const input = {
   age: '27',

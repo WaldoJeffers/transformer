@@ -1,5 +1,5 @@
-import map from '../lib/map'
-import merge from '../lib/merge'
+import map from '../src/map'
+import merge from '../src/merge'
 
 describe('map', () => {
   test('on a undefined property', () => {
