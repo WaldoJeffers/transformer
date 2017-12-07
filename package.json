@@ -5,7 +5,7 @@
   "module": "src/transformer.js",
   "scripts": {
     "build": "babel src --out-dir dist",
-    "prepublish": "npm build",
+    "prepublishOnly": "npm run build",
     "test": "jest"
   },
   "author": "Waldo Jeffers",
