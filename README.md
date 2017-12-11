@@ -56,11 +56,11 @@ Returns a function which transforms an input object based on the descriptor obje
 
 #### parameters
 
-* **descriptor** `Object<outputProperty: transformer>`: An object which describe how the output object will look like. Its keys define which properties will exist on the output object, and its values are _transformers_ (such as [`identity`](#identity), [`map`](#map), [`mapFrom`](#mapFrom)) which compute the output object's values, usually by mapping from the input values. ⚠️ Any property from the input object whose key is missing in the descriptor will be stripped off in the output object.
+* **descriptor** `Object<outputProperty: Transformer>`: An object which describes how the output object will look like. Its keys define which properties will exist on the output object, and its values are _transformers_ (such as [`identity`](#identity), [`map`](#map), [`mapFrom`](#mapFrom)) which compute the output object's values, usually by mapping from the input values. ⚠️ Any property from the input object whose key is missing in the descriptor will be stripped off in the output object.
 
 #### return value
 
-A function whose signature is `Function: input: Object -> output: Object` and which accepts an input object which it will transform into an ouput object based on the descriptor object provided earlier.
+A function whose signature is `Function: input: Object -> output: Object`. It accepts an input object which will be transformed into an ouput object based on the descriptor object provided earlier.
 
 #### example
 
