@@ -40,16 +40,6 @@ describe('mapFrom', () => {
       names: { firstname: 'James', lastname: 'M' },
     })
   })
-  test('on an array of props without a mapper', () => {
-    expect(
-      mapFrom(['firstname', 'lastname'])(merge)(input, {}, 'fullname')
-    ).toEqual({
-      fullname: {
-        firstname: 'James',
-        lastname: 'M',
-      },
-    })
-  })
   test('on an array of props with a mapper accepting 1 argument', () => {
     expect(
       mapFrom(
@@ -66,6 +56,17 @@ describe('mapFrom', () => {
         ['firstname', 'lastname'],
         (firstname, lastname) => `${firstname} ${lastname}`
       )(merge)(input, {}, 'fullname')
+    ).toEqual({
+      fullname: 'James M',
+    })
+  })
+  test('on an array of props with a mapper using the rest operator', () => {
+    expect(
+      mapFrom(['firstname', 'lastname'], (...args) => args.join(' '))(merge)(
+        input,
+        {},
+        'fullname'
+      )
     ).toEqual({
       fullname: 'James M',
     })
