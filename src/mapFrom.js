@@ -12,9 +12,9 @@ const mapFrom = (inputProps, mapper = x => x) => reducer => (
     () =>
       reducer(output, {
         [outputProp]:
-          inputProps.length === mapper.length
-            ? mapper(...inputProps.map(inputProp => input[inputProp]))
-            : mapper(pluck(inputProps, input)),
+          mapper.length === 1
+            ? mapper(pluck(inputProps, input))
+            : mapper(...inputProps.map(inputProp => input[inputProp])),
       }),
     output
   )
