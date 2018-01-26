@@ -5,7 +5,7 @@ import has from '../src/utils/has'
 import compose from '../src/utils/compose'
 import branch from '../src/transformers/branch'
 import mapFrom from '../src/transformers/mapFrom'
-import identity from '../src/transformers/identity'
+import identity from '../src/utils/identity'
 
 const input = {
   firstname: 'James',
