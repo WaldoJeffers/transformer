@@ -20,7 +20,7 @@ npm i @waldojeffers/transformer
 ## usage
 
 ```js
-import { identity, map, mapFrom, transform } from 'transformer'
+import { identity, map, mapFrom, transform } from '@waldojeffers/transformer'
 
 const input = {
   firstname: 'James',
