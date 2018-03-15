@@ -1,6 +1,6 @@
-const curry = f => (...args) =>
-  args.length >= f.length
-    ? f(...args)
-    : (...moreArgs) => curry(f)(...args, ...moreArgs)
+const curry = fn => (...args) =>
+  args.length >= fn.length
+    ? fn(...args)
+    : (...moreArgs) => curry(fn)(...args, ...moreArgs)
 
 export default curry

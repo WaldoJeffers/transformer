@@ -7,6 +7,7 @@ describe('map', () => {
   it('should return a transformer', () => {
     expect(isTransformer(map())).toBe(true)
   })
+
   it('should map over the item using the provided mapper', () => {
     expect(map(s => s.toUpperCase())(concat)('James', 'm')).toBe('James M')
   })
