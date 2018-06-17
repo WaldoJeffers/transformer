@@ -15,6 +15,8 @@ const input = {
   drumsticks: 2,
 }
 
+const toUpperCase = x => x.toUpperCase()
+
 describe('transform', () => {
   it('should strip off properties not specified in the descriptor', () => {
     expect(transform({})(input)).toEqual({})
@@ -22,6 +24,12 @@ describe('transform', () => {
 
   it('should accept single values as transformers', () => {
     expect(transform({ awesome: true })(input)).toEqual({ awesome: true })
+  })
+
+  it('should accept functions as 1-to-1 mappers', () => {
+    expect(transform({ firstname: toUpperCase })(input)).toEqual({
+      firstname: 'JAMES',
+    })
   })
 
   // TO DO: spy on the mapper, makes sure its not called
