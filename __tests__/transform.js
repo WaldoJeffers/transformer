@@ -6,6 +6,7 @@ import filter from '../src/transformers/filter'
 import map from '../src/transformers/map'
 import mapFrom from '../src/transformers/mapFrom'
 import transform from '../src/transform'
+import branch from '../src/transformers/branch'
 
 const input = {
   age: '27',
@@ -45,7 +46,14 @@ describe('transform', () => {
           map(get('occupation')),
           map(s => s.toLowerCase())
         ),
+        vegan: branch(has(['firstname', 'lastname']), map(() => true)),
       })(input)
-    ).toEqual({ age: 27, fullname: 'James M', drumsticks: 2, role: 'drummer' })
+    ).toEqual({
+      age: 27,
+      fullname: 'James M',
+      drumsticks: 2,
+      role: 'drummer',
+      vegan: true,
+    })
   })
 })

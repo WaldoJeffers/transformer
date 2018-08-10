@@ -21,7 +21,7 @@ describe('branch', () => {
     )
   })
 
-  it('should return the accumulator when no falsy branch is provided and the preidcate is false', () => {
+  it('should return the accumulator when no falsy branch is provided and the predicate is false', () => {
     expect(branch(() => false, identity)(concat)('Hello', 'World')).toBe(
       'Hello'
     )
