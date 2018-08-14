@@ -5,7 +5,7 @@ import has from '../src/utils/has'
 import filter from '../src/transformers/filter'
 import map from '../src/transformers/map'
 import mapFrom from '../src/transformers/mapFrom'
-import transform from '../src/transform'
+import extend from '../src/extend'
 import branch from '../src/transformers/branch'
 
 const input = {
@@ -18,25 +18,29 @@ const input = {
 
 const toUpperCase = x => x.toUpperCase()
 
-describe('transform', () => {
-  it('should strip off properties not specified in the descriptor', () => {
-    expect(transform({})(input)).toEqual({})
+describe('extend', () => {
+  it('should keep properties not specified in the descriptor', () => {
+    expect(extend({})(input)).toEqual(input)
   })
 
   it('should accept single values as transformers', () => {
-    expect(transform({ awesome: true })(input)).toEqual({ awesome: true })
+    expect(extend({ awesome: true })(input)).toEqual({
+      ...input,
+      awesome: true,
+    })
   })
 
   it('should accept functions as 1-to-1 mappers', () => {
-    expect(transform({ firstname: toUpperCase })(input)).toEqual({
+    expect(extend({ firstname: toUpperCase })(input)).toEqual({
+      ...input,
       firstname: 'JAMES',
     })
   })
 
-  // TO DO: spy on the mapper, makes sure its not called
-  it('should properly transform the input object', () => {
+  // TO DO: spy on the mapper, make sure its not called
+  it('should properly extend the input object', () => {
     expect(
-      transform({
+      extend({
         age: Number,
         fullname: mapFrom(['firstname', 'lastname'], names => names.join(' ')),
         middlename: mapFrom('middlename', s => s.toUpperCase()),
@@ -49,6 +53,7 @@ describe('transform', () => {
         vegan: branch(has(['firstname', 'lastname']), map(() => true)),
       })(input)
     ).toEqual({
+      ...input,
       age: 27,
       fullname: 'James M',
       drumsticks: 2,

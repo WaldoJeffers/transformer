@@ -1,11 +1,12 @@
 {
   "name": "@waldojeffers/transformer",
-  "version": "1.0.3",
-  "main": "dist/transformer.js",
-  "module": "src/transformer.js",
+  "version": "2.0.0",
+  "main": "dist/index.js",
+  "module": "src/index.js",
   "scripts": {
     "build": "babel src --out-dir dist",
     "prepublishOnly": "npm run build",
+    "lint": "eslint .",
     "test": "jest"
   },
   "author": "Waldo Jeffers",
@@ -15,8 +16,10 @@
     "@babel/core": "^7.0.0-beta.36",
     "@babel/preset-env": "^7.0.0-beta.36",
     "babel-core": "bridge",
-    "babel-jest": "^22.2.2",
-    "jest": "^22.3.0"
+    "babel-jest": "^23.0.1",
+    "eslint": "^5.3.0",
+    "eslint-plugin-import": "^2.14.0",
+    "jest": "^23.1.0"
   },
   "dependencies": {},
   "engines": {
