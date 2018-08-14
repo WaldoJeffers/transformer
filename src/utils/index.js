@@ -3,6 +3,6 @@ import compose from './compose'
 import curry from './curry'
 import has from './has'
 import identity from './identity'
-import select from './select'
+import pick from './pick'
 
-export { assoc, compose, curry, has, identity, select }
+export { assoc, compose, curry, has, identity, pick }
