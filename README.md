@@ -9,7 +9,7 @@ A utility library to easily transform your data: describe your desired output, p
 
 ## goal
 
-The goal is this library is to allow you to easily create utility functions to transform one type of data to another, using functional programming. You can read more on [why you might need **transformer** on the wiki](https://github.com/WaldoJeffers/transformer/wiki/Why).
+The goal of this library is to allow you to easily create utility functions to transform one type of data to another, using functional programming. You can read more on [why you might need **transformer** on the wiki](https://github.com/WaldoJeffers/transformer/wiki/Why).
 
 ## installation
 
@@ -30,13 +30,14 @@ const input = {
 }
 
 const transformer = transform({
-  age: identity,
+  age: x => 2 * x, // age is undefined, this will not be called
   fullname: mapFrom(
+    // compute a from from 2 input props
     ['firstname', 'lastname'],
-    ({ firstname, lastname }) => `${firstname} ${lastname}`
+    ([firstname, lastname]) => `${firstname} ${lastname}`,
   ),
-  drumsticks: identity,
-  occupation: map(s => s.toLowerCase()),
+  drumsticks: identity, // pass through
+  occupation: s => s.toLowerCase(), // apply a transformation
 })
 
 transformer(input) // { fullname: 'James M', drumsticks: 2, occupation: 'drummer' }
@@ -56,7 +57,7 @@ Returns a function which transforms an input object based on the descriptor obje
 
 #### parameters
 
-* **descriptor** `Object<outputProperty: Transformer>`: An object which describes how the output object will look like. Its keys define which properties will exist on the output object, and its values are _transformers_ (such as [`identity`](#identity), [`map`](#map), [`mapFrom`](#mapFrom)) which compute the output object's values, usually by mapping from the input values. ⚠️ Any property from the input object whose key is missing in the descriptor will be stripped off in the output object.
+- **descriptor** `Object<outputProperty: Transformer>`: An object which describes how the output object will look like. Its keys define which properties will exist on the output object, and its values are _transformers_ (such as [`identity`](#identity), [`map`](#map), [`mapFrom`](#mapFrom)) which compute the output object's values, usually by mapping from the input values. ⚠️ Any property from the input object whose key is missing in the descriptor will be stripped off in the output object.
 
 #### return value
 
@@ -118,7 +119,7 @@ Returns a _transformer_ function which will pick the value associated to the inp
 
 #### parameters
 
-* **mapper** `Function`: A function which will map over the associated property's value.
+- **mapper** `Function`: A function which will map over the associated property's value.
 
 #### example
 
@@ -147,8 +148,8 @@ Returns a _transformer_ function which will pick keys from the input object and 
 
 #### parameters
 
-* **inputKey** `String | Array<String>`: the inputKey(s) whose associated value in the input object should be retrieved and provided to the mapper function
-* **mapper** `Function: any | Object<any> | Array<any> -> any`: the function which will map over the picked keys. Its default value is the identity function (`x => x`). If a string is provided as the input key, the mapper function will receive its associated value. If an array of strings is provided, the function will receive the associated values, either as single parameters if the provided function accept the same number of arguments as the inputKeys array's length, or as an object.
+- **inputKey** `String | Array<String>`: the inputKey(s) whose associated value in the input object should be retrieved and provided to the mapper function
+- **mapper** `Function: any | Object<any> | Array<any> -> any`: the function which will map over the picked keys. Its default value is the identity function (`x => x`). If a string is provided as the input key, the mapper function will receive its associated value. If an array of strings is provided, the function will receive the associated values, either as single parameters if the provided function accept the same number of arguments as the inputKeys array's length, or as an object.
 
 #### example
 
@@ -166,11 +167,11 @@ const descriptor = {
   balance: mapFrom('balance', amount => '$' + amount),
   fullname: mapFrom(
     ['firstname', 'lastname'],
-    ({ firstname, lastname }) => `${firstname} ${lastname}`
+    ({ firstname, lastname }) => `${firstname} ${lastname}`,
   ),
   drumsticksValue: mapFrom(
     ['drumstickCount', 'drumstickValue'],
-    (a, b) => a * b
+    (a, b) => a * b,
   ),
 }
 const transformer = transform(descriptor)
