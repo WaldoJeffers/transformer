@@ -1,7 +1,8 @@
-import identity from './identity'
+import identity from './utils/identity'
 import extend from './extend'
-import map from './map'
-import mapFrom from './mapFrom'
+import branch from './transformers/branch'
+import map from './transformers/map'
+import mapFrom from './transformers/mapFrom'
 import transform from './transform'
 
-export { identity, extend, map, mapFrom, transform }
+export { identity, branch, extend, map, mapFrom, transform }

@@ -6,6 +6,7 @@
   "scripts": {
     "build": "babel src --out-dir dist",
     "prepublishOnly": "npm run build",
+    "lint": "eslint .",
     "test": "jest"
   },
   "author": "Waldo Jeffers",
@@ -16,6 +17,8 @@
     "@babel/preset-env": "^7.0.0-beta.36",
     "babel-core": "bridge",
     "babel-jest": "^23.0.1",
+    "eslint": "^5.3.0",
+    "eslint-plugin-import": "^2.14.0",
     "jest": "^23.1.0"
   },
   "dependencies": {},
