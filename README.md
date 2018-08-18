@@ -49,8 +49,8 @@ transformer(input) // { fullname: 'James M', drumsticks: 2, occupation: 'drummer
 
 #### description
 
-```
-Function: descriptor: Object -> (Function: input: Object -> output: Object)
+```Erlang
+transform :: Object descriptor => (Object input =>  Object output)
 ```
 
 Returns a function which transforms an input object based on the descriptor object you provide it. `transform` is a pure function: it will create a new output object and will not modify the input object.
