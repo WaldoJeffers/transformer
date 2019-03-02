@@ -149,7 +149,7 @@ Returns a _transformer_ function which will pick keys from the input object and 
 #### parameters
 
 - **inputKey** `String | Array<String>`: the inputKey(s) whose associated value in the input object should be retrieved and provided to the mapper function
-- **mapper** `Function: any | Object<any> | Array<any> -> any`: the function which will map over the picked keys. Its default value is the identity function (`x => x`). If a string is provided as the input key, the mapper function will receive its associated value. If an array of strings is provided, the function will receive the associated values, either as single parameters if the provided function accept the same number of arguments as the inputKeys array's length, or as an object.
+- **mapper** `Function: any | Array<any> -> any`: the function which will map over the picked keys. Its default value is the identity function (`x => x`). If a string is provided as the input key, the mapper function will receive its associated value. If an array of strings is provided, the function will receive the associated values as an array.
 
 #### example
 
@@ -171,7 +171,7 @@ const descriptor = {
   ),
   drumsticksValue: mapFrom(
     ['drumstickCount', 'drumstickValue'],
-    (a, b) => a * b,
+    ([a, b]) => a * b,
   ),
 }
 const transformer = transform(descriptor)
