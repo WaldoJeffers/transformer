@@ -165,10 +165,7 @@ const input = {
 }
 const descriptor = {
   balance: mapFrom('balance', amount => '$' + amount),
-  fullname: mapFrom(
-    ['firstname', 'lastname'],
-    ({ firstname, lastname }) => `${firstname} ${lastname}`,
-  ),
+  fullname: mapFrom(['firstname', 'lastname'], arr => arr.join(' ')),
   drumsticksValue: mapFrom(
     ['drumstickCount', 'drumstickValue'],
     ([a, b]) => a * b,
