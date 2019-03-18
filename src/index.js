@@ -6,5 +6,16 @@ import map from './transformers/map'
 import mapFrom from './transformers/mapFrom'
 import transform from './transform'
 import filter from './transformers/filter'
+import compose from './utils/compose'
 
-export { identity, branch, extend, map, mapFrom, transform, has, filter, }
+export {
+  identity,
+  branch,
+  extend,
+  map,
+  mapFrom,
+  transform,
+  has,
+  filter,
+  compose,
+}
